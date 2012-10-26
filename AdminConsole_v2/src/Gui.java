@@ -1,9 +1,5 @@
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
@@ -11,29 +7,70 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * Gui.java
- *
- * Created on May 8, 2010, 8:13:23 AM
- */
 
 /**
  *
  * @author athuluru
  */
 public class Gui extends javax.swing.JFrame {
-
-    //private JComboBox jComboBox11;
-	//private JLabel jLabel15;
-	/** Creates new form Gui */
+	// Variables declaration - do not modify
+    private javax.swing.JMenu Authors;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox10;
+    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JComboBox jComboBox4;
+    private javax.swing.JComboBox jComboBox5;
+    private javax.swing.JComboBox jComboBox6;
+    private javax.swing.JComboBox jComboBox7;
+    private javax.swing.JComboBox jComboBox8;
+    private javax.swing.JComboBox jComboBox9;
+    private javax.swing.JComboBox jComboBox11;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private ArrayList<JComboBox> arrCombo= new ArrayList<JComboBox>();
+    
+    ArrayList<Integer> lst=new ArrayList<Integer>();
+    
+    JFrame selectionFrame;
+    
+    /**
+    * @param args the command line arguments
+    */
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Gui().setVisible(true);
+            }
+        });
+    }
+    
     public Gui() {
         initComponents();
     }
+
+    public void setjMenuItem2(javax.swing.JMenuItem jMenuItem2) {
+		this.jMenuItem2 = jMenuItem2;
+	}
+
+	public javax.swing.JMenuItem getjMenuItem2() {
+		return jMenuItem2;
+	}    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -67,11 +104,8 @@ public class Gui extends javax.swing.JFrame {
         jButton3=  new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        
-        //jLabel15 = new javax.swing.JLabel();
-        
+                
         jComboBox10 = new javax.swing.JComboBox();
-        //add code Lavanya
         jComboBox11 = new javax.swing.JComboBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         Authors = new javax.swing.JMenu();
@@ -84,15 +118,6 @@ public class Gui extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24));
         jLabel1.setText("Elevator System");
         
-        
-        
-        //jLabel16 = new javax.swing.JLabel();
-        
-        
-        
-        //jComboBox11 = new javax.swing.JComboBox();
-        
-
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", " " }));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", " " }));
@@ -164,17 +189,7 @@ public class Gui extends javax.swing.JFrame {
         		//jComboBox2.actionPerformed(evt);        		
         	}
         });
-        //Pinky add
-        /*JFrame frame = new JFrame("Selecting");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        JComboBox j1=new JComboBox(new String[] {"currrent","even","odd"});
-        frame.add(j1,BorderLayout.SOUTH);*/
-        
-        
-        /*ItemListener itemListener = new ItemListener(){
-        	public void 
-        };*/
+
         
         
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Single Door", "Double Door", "Alternate Single/Double Door" }));
@@ -182,11 +197,7 @@ public class Gui extends javax.swing.JFrame {
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Green", "Blue", "Red", "Yellow" }));
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Blue", "Green", "Red", "Yellow" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
-            }
-        });
+
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Blue", "Green", "Red", "Yellow" }));
 
@@ -197,19 +208,12 @@ public class Gui extends javax.swing.JFrame {
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Text", "Symbol" }));
         
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Text", "Symbol" })); 
-        jComboBox11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox11ActionPerformed(evt);
-            }
-        });
+
         jLabel2.setText("Number of Floors");
 
         jLabel3.setText("Number of Cars");
 
         jLabel4.setText("Door Configuration");
-
-        
-        //jLabel15.setText("User Selection Type");
         
         jLabel5.setText("User Panel Color");
 
@@ -233,23 +237,7 @@ public class Gui extends javax.swing.JFrame {
         jLabel12.setText("Alarm Type");
 
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Shortest Path", "Random", "SCAN" }));
-        jComboBox10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox10ActionPerformed(evt);
-            }
-        });
         
-        //Pinky added
-        
-        /*String numCars = (String)jComboBox2.getSelectedItem();
-		int numbCar=Integer.parseInt(numCars);
-        for(int j=0;j<numbCar;j++){
-        	JComboBox x= new JComboBox();
-        	x.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Current", "Even", "Odd"}));
-        	//jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Current", "Even", "Odd"}));
-        }
-        */
-        //jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Current", "Even", "Odd"}));
         jMenuItem1.addActionListener(new Authors());
 
         Authors.setBackground(java.awt.SystemColor.control);
@@ -257,9 +245,6 @@ public class Gui extends javax.swing.JFrame {
         Authors.setText("About");
         Authors.setFont(new java.awt.Font("Times New Roman", 0, 12));
 
-       /* jMenuItem2.setText("Elevator System");
-        Authors.add(jMenuItem2);
-*/
         jMenuItem1.setText("Authors");
         Authors.add(jMenuItem1);
 
@@ -287,7 +272,6 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jLabel7)
                     .addComponent(jLabel6)
-                    //.addComponent(jLabel15)
                     .addComponent(jLabel5)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4)
@@ -301,7 +285,6 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(jComboBox10, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)            
-                    //.addComponent(jComboBox11, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) 
                     .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -342,14 +325,7 @@ public class Gui extends javax.swing.JFrame {
                 		
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                /*.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE) 
-                .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                 .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)*/
-                 
-                         
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)                         
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
@@ -390,25 +366,11 @@ public class Gui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
-
-    private void jComboBox10ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }  
     
-    private void jComboBox11ActionPerformed(java.awt.event.ActionEvent evt){
-    	
-    }
-   //private void jComboBox1
    class ok implements ActionListener{
 	   public void actionPerformed(ActionEvent arg0) {
-		   
-		   System.out.println(arrCombo.size());
-		   
+		   		   
 		   for(int i=0;i<arrCombo.size();i++){
-			   System.out.println(arrCombo.get(i).getSelectedItem());
 			   String selection =(String)arrCombo.get(i).getSelectedItem();
 			   if(selection.equalsIgnoreCase("Seq")){
 		    		  lst.add(new Integer(0));
@@ -423,20 +385,14 @@ public class Gui extends javax.swing.JFrame {
 		   }
 		   GuiConfiguration.setSelectioArray(lst);
 		   selectionFrame.setVisible(false);
-		   /*for(int j=0;j<lst.size();j++){
-			   System.out.println(GuiConfiguration.getSelectioArray().get(j).intValue());
-			  
-		   }*/
-		   
-		  //ElevatorConfigurationReader.showElevator();
 	   }
 	   
    }
-    class ShowElevator implements ActionListener{
+   
+   class ShowElevator implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
 			
 			String numFloors = (String)jComboBox1.getSelectedItem();
 			GuiConfiguration.setNumOfFloors(Integer.parseInt(numFloors));
@@ -470,19 +426,6 @@ public class Gui extends javax.swing.JFrame {
 			
 			String alarmType = (String)jComboBox11.getSelectedItem();
 			GuiConfiguration.setAlarmType(alarmType.toString());
-			//String userPanelType = (String)jComboBox11.getSelectedItem();
-			
-			/*if(userPanelType.equalsIgnoreCase("Current")){
-	    		  GuiConfiguration.setUserPanelType(0);
-	    	  }
-  	   if(userPanelType.equalsIgnoreCase("Even")){
-  		 GuiConfiguration.setUserPanelType(1);
-	    	  }
-  	   if(userPanelType.equalsIgnoreCase("Odd")){
-  		 GuiConfiguration.setUserPanelType(2);
-	    	  }	    
-			*/
-			//GuiConfiguration.setSelectioArray(lst);
 			
 			ElevatorConfigurationReader.showElevator();
 			
@@ -490,19 +433,16 @@ public class Gui extends javax.swing.JFrame {
     	
     }
     
-    
-    static class Authors implements ActionListener{
+   static class Authors implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
 			JFrame AboutFrame = new JFrame("Authors");
 			AboutFrame.setVisible(true);
 			AboutFrame.setSize(200,150);
 			JLabel label = new JLabel("Aarthi Varadarajan");
 			JLabel label1 = new JLabel("Jahnavi Athuluru ");
 			JLabel label2 = new JLabel("Sandhya Rajagopalan");
-			//System.out.println("hiiiiiii");
 			
 			JPanel panel = new JPanel();
 			AboutFrame.add(panel);
@@ -512,68 +452,4 @@ public class Gui extends javax.swing.JFrame {
 		}
     	
     }
-
-
-   
-    
-   
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Gui().setVisible(true);
-            }
-        });
-    }
-
-    public void setjMenuItem2(javax.swing.JMenuItem jMenuItem2) {
-		this.jMenuItem2 = jMenuItem2;
-	}
-
-	public javax.swing.JMenuItem getjMenuItem2() {
-		return jMenuItem2;
-	}
-
-	// Variables declaration - do not modify
-    private javax.swing.JMenu Authors;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-   private javax.swing.JComboBox jComboBox1;
-   // private javax.swing.JComboBox jComboBox11;
-    private javax.swing.JComboBox jComboBox10;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JComboBox jComboBox9;
-    private javax.swing.JComboBox jComboBox11;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    //add code - Lavanya
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private ArrayList<JComboBox> arrCombo= new ArrayList<JComboBox>();
-    
-    ArrayList<Integer> lst=new ArrayList<Integer>();
-    
-    JFrame selectionFrame;
-    
-    // End of variables declaration
-
 }
