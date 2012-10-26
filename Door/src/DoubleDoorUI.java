@@ -12,16 +12,13 @@ public class DoubleDoorUI extends JPanel{
 	JTextField textDoorStatus = null;
 	
 	public DoubleDoorUI(){
-		
-		System.out.println("Creating layout");
 		setLayout(new FlowLayout());
 		JLabel label = new JLabel("Double Door");
 		textDoorStatus = new JTextField(10);
 		textDoorStatus.setText("CLOSED");
 		textDoorStatus.setEnabled(false);
 		add(label);
-		add(textDoorStatus);		
-		
+		add(textDoorStatus);				
 	}
 	
 	public void setDoorStatus(String doorStatus){

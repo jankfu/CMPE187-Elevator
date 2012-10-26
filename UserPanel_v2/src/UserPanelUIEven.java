@@ -9,46 +9,22 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-
-
 public class UserPanelUIEven extends JPanel {
-
-	private ICar car = null;
-
-	private UserPanelColor activeButtonColor = null;
-
 	private UserPanelColor buttonColor = null;
 
 	private List<JButton> lstUserPanelButtons = new ArrayList<JButton>();
-	
-	//modify code - Lavanya	
-	private String alarmType;
-	
-	 JButton alarmOn;
-	 JButton alarmOff;
-	
-	//public UserPanelUIEven(int numFloors, UserPanelColor buttonColor,
-	//UserPanelColor activeButtonColor, ICar car) {
-		
+
+	JButton alarmOn;
+	JButton alarmOff;
+
 	public UserPanelUIEven(int numFloors, UserPanelColor buttonColor,
-				UserPanelColor activeButtonColor, ICar car, String alarmType) {
-		//end
-
-		
-		System.out.println("Inside UsserPanel UI "+ car);
-
-		this.car = car;
-
-		this.activeButtonColor = activeButtonColor;
+			UserPanelColor activeButtonColor, ICar car, String alarmType) {
 
 		this.buttonColor = buttonColor;
 
 		int newNumFloors = 0;
-		
-        int numButtons = numFloors + 2;  //for alarmOn and alarmOff buttons;
-		
-		//add code - Lavanya
-		this.alarmType = alarmType; //end
+
+		int numButtons = numFloors + 2; // for alarmOn and alarmOff buttons;
 
 		setPreferredSize(new Dimension(200, 200));
 		if (numButtons % 3 != 0) {
@@ -59,74 +35,69 @@ public class UserPanelUIEven extends JPanel {
 
 		setLayout(new GridLayout(newNumFloors / 3, 3));
 
-		for (int i = 2; i <= numFloors; i+=2) {
+		for (int i = 2; i <= numFloors; i += 2) {
 			JButton button = new JButton("" + i);
-			
+
 			System.out.println("Button Text" + button.getText());
 			System.out.println("Button Color" + buttonColor);
 			button.setBackground(buttonColor.getJColor());
-			button.addActionListener(
-					new UserPanelButtonListener(button.getText(), car, activeButtonColor));
+			button.addActionListener(new UserPanelButtonListener(button
+					.getText(), car, activeButtonColor));
 			add(button);
 			lstUserPanelButtons.add(button);
 
 		}
-		
-//add code - Lavanya
-		
+
 		ImageIcon alarm = new ImageIcon("images/alarmbell2.jpg");
 		ImageIcon noAlarm = new ImageIcon("images/alarm.jpg");
-		
-		if(alarmType == "Text"){
-		  alarmOn = new JButton("AlarmOn");
-		  alarmOn.setMargin(new Insets(1,1,1,1));
-		  alarmOff = new JButton("AlarmOff");
-		  alarmOff.setMargin(new Insets(1,1,1,1));
-		  alarmOff.setEnabled(false);
+
+		if (alarmType == "Text") {
+			alarmOn = new JButton("AlarmOn");
+			alarmOn.setMargin(new Insets(1, 1, 1, 1));
+			alarmOff = new JButton("AlarmOff");
+			alarmOff.setMargin(new Insets(1, 1, 1, 1));
+			alarmOff.setEnabled(false);
 		}
-		
-		else{
+
+		else {
 			alarmOn = new JButton(alarm);
-			 alarmOff = new JButton(noAlarm);
-			 alarmOff.setEnabled(false);
+			alarmOff = new JButton(noAlarm);
+			alarmOff.setEnabled(false);
 		}
 		alarmOn.setBackground(Color.GRAY);
 		alarmOff.setBackground(Color.GRAY);
-		alarmOn.addActionListener(new AlarmButtonListener("on",numFloors,car));
-		alarmOff.addActionListener(new AlarmButtonListener("off",numFloors,car));
+		alarmOn.addActionListener(new AlarmButtonListener("on", numFloors, car));
+		alarmOff.addActionListener(new AlarmButtonListener("off", numFloors,
+				car));
 		add(alarmOn);
 		add(alarmOff);
-		
-		
-        //end
+
 	}
 
-	
-	
-	public void deactivateFloorButton(int floorNumber){
-		
-		for(JButton button : lstUserPanelButtons){
-			if(Integer.parseInt(button.getText()) == floorNumber){
+	public void deactivateFloorButton(int floorNumber) {
+
+		for (JButton button : lstUserPanelButtons) {
+			if (Integer.parseInt(button.getText()) == floorNumber) {
 				button.setBackground(buttonColor.getJColor());
 				break;
 			}
 		}
-		
+
 	}
-	
-	public void deactivateFloorButtons(){
-	
-		for(JButton button : lstUserPanelButtons){
+
+	public void deactivateFloorButtons() {
+
+		for (JButton button : lstUserPanelButtons) {
 			button.setEnabled(false);
 			button.setBackground(buttonColor.getJColor());
 		}
 		alarmOff.setEnabled(true);
 	}
-	
-	public void activateFloorButtons(){
-		for(JButton button : lstUserPanelButtons)
+
+	public void activateFloorButtons() {
+		for (JButton button : lstUserPanelButtons)
 			button.setEnabled(true);
 		alarmOff.setBackground(Color.GRAY);
 	}
 
-	}
+}

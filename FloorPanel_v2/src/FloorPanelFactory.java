@@ -13,7 +13,6 @@ public class FloorPanelFactory
 			ifloorPanel.setFloorPanelQueueType(new FloorPanelQueue());
 			ifloorPanel.setButtonColor(FloorPanelConfiguration.getButtonColor());
 			ifloorPanel.setActiveButtonColor(FloorPanelConfiguration.getActiveButtonColor());;
-			//add code - Lavanya
 			ifloorPanel.setNumAlarmIndicators(FloorPanelConfiguration.getNumAlarmIndicators());
 		}
 		

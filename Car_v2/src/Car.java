@@ -23,14 +23,10 @@ public class Car implements ICar {
 	CarRunnable carRunnable = null;
 	
 	Thread carThread = null;
-	
-	//Pinky Code Added
 	int carID;
-	//static int id=0;
 	
 	
 	public Car() {
-		//this.carID=++Car.id;
 		carRunnable = new CarRunnable();
 		carThread = new Thread(carRunnable);
 	}
@@ -136,10 +132,6 @@ public class Car implements ICar {
 		carRunnable.setDirection("UP");
 		carThread.start();
 		
-		
-		
-		
-		
 	}
 
 	@Override
@@ -178,6 +170,10 @@ class CarRunnable implements Runnable {
 	
 	String direction = null;
 	
+	public CarRunnable(){
+		
+	}
+	
 	public String getDirection() {
 		return direction;
 	}
@@ -194,14 +190,8 @@ class CarRunnable implements Runnable {
 		this.destinationFloorNumber = destinationFloorNumber;
 	}
 	
-	public CarRunnable(){
-		
-	}
-	
-	public CarRunnable(ICar car, int destinationFloorNumber){
-		
-		this.car = car;
-		
+	public CarRunnable(ICar car, int destinationFloorNumber){	
+		this.car = car;		
 		this.destinationFloorNumber = destinationFloorNumber;
 	}
 
@@ -216,7 +206,6 @@ class CarRunnable implements Runnable {
 					try {
 						Thread.sleep(2000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					car.setCurrentFloorNumber(car.getCurrentFloorNumber() + 1 );
@@ -227,10 +216,9 @@ class CarRunnable implements Runnable {
 				try {
 					Thread.currentThread().sleep(2000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				System.out.println("Reached destination "+ destinationFloorNumber);
+				//Car has reached destination
 				car.notifyAll();
 			}
 		}else{
@@ -239,7 +227,6 @@ class CarRunnable implements Runnable {
 					try {
 						Thread.sleep(2000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					car.setCurrentFloorNumber(car.getCurrentFloorNumber() -1 );
@@ -249,10 +236,9 @@ class CarRunnable implements Runnable {
 				try {
 					Thread.currentThread().sleep(2000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				System.out.println("Reached destination "+ destinationFloorNumber);
+				//Reached destination
 				car.notifyAll();
 			}
 		}

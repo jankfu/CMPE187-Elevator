@@ -1,10 +1,9 @@
-
 public class UserPanelQueueConfiguration {
-	
+
 	public static String userPanelQueueType = "default";
-	
+
 	public static String carType = "default";
-	
+
 	public static String carControllerType = "default";
 
 	public static String getUserPanelQueueType() {

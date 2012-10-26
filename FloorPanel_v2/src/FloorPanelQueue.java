@@ -20,7 +20,6 @@ public class FloorPanelQueue implements IFloorPanelQueue {
 	public void dispatchFloorRequest(int currentFloornumber, Direction direction) {
 		System.out.println("dispatching requests to meta controller..."
 				+ currentFloornumber + " " + direction);
-		//
 	}
 
 	public void setMetaContoller(IMetaController metaController) {
@@ -32,16 +31,11 @@ public class FloorPanelQueue implements IFloorPanelQueue {
 	public void putFloorRequest(int currentFloornumber, Direction direction) {
 		
 		queueFloorPanelRequest.offer(new FloorPanelRequest(currentFloornumber,direction));
-		System.out.println("putting requests to floor panel queue..."
-				+ currentFloornumber + " " + direction);
-		System.out.println("queue : " + queueFloorPanelRequest.toString());
-		
 		if(isThreadStarted == false){
 			Thread floorPanelQueueMonitorThread = new Thread(new FloorPanelQueueMonitorThread(this, metaController));
 			floorPanelQueueMonitorThread.start();
 			isThreadStarted = true;
-		}
-		
+		}		
 	}
 }
 
@@ -63,7 +57,6 @@ class FloorPanelQueueMonitorThread implements Runnable {
 				Thread.sleep(1000);
 				while (queueFloorPanelRequest.size() != 0) {
 					FloorPanelRequest floorPanelRequest = queueFloorPanelRequest.pollFirst();
-					System.out.println(floorPanelRequest);
 					 metaController.processRequest(floorPanelRequest.getcurrentFloornumber(), floorPanelRequest.getdirection());
 					
 				}

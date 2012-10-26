@@ -20,7 +20,6 @@ public interface IUserPanel {
     
     int getSelection();
     
-    //code add - Lavanya
     void setAlarmType(String alarmType);
     
     void setAlarmStatus(String alarmStatus);
@@ -32,5 +31,4 @@ public interface IUserPanel {
     void processAlarmRequest(String alarmStatus, int carId);
     
     void setMetaController(IMetaController metaController);
-    //end
 }

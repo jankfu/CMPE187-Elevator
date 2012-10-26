@@ -1,5 +1,4 @@
-
-public class TestUserPanelQueue implements IUserPanelQueue{
+public class TestUserPanelQueue implements IUserPanelQueue {
 
 	@Override
 	public int getNumTasks() {
@@ -16,19 +15,19 @@ public class TestUserPanelQueue implements IUserPanelQueue{
 	@Override
 	public void putMessage(int arg0) {
 		System.out.println("Message put in queue " + arg0);
-		
+
 	}
 
 	@Override
 	public void setCar(ICar arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void flushQueue() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

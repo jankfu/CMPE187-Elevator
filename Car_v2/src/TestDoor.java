@@ -6,7 +6,6 @@ public class TestDoor implements IDoor {
 
 	@Override
 	public void closeDoor() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -19,26 +18,21 @@ public class TestDoor implements IDoor {
 
 	@Override
 	public String getDoorStatus() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void openDoor() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void setCarController(ICarController arg0) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void setDoorStatus(String arg0) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

@@ -12,8 +12,6 @@ public class SingleDoorUI extends JPanel{
 	JTextField textDoorStatus = null;
 	
 	public SingleDoorUI(){
-		
-		System.out.println("Creating layout");
 		setLayout(new FlowLayout());
 		JLabel label = new JLabel("Single Door");
 		textDoorStatus = new JTextField(10);

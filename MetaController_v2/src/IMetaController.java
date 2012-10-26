@@ -7,9 +7,7 @@ public interface IMetaController {
 	void registerCar(ICar car);
 	
 	void setAlgorithm(IAlgorithm algorithm);
-	
-	//add code Lavanya
-	
+		
 	void unregisterCar(ICar car);
 
 }

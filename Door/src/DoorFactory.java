@@ -10,20 +10,7 @@ public class DoorFactory {
 			door = new DoubleDoor();
 		}
 		
-		/*if(DoorConfiguration.getCarType().equalsIgnoreCase("default")){
-			ICar car = new Car();
-			door.setCar(car);
-		}*/
-		
-		/*if(DoorConfiguration.getCarControllerType().equalsIgnoreCase("default")){
-			door.setCarController(new CarController());
-		}*/
-		
 		return door;
-		
-		
-		
-		
 	}
 
 }

@@ -12,41 +12,22 @@ import javax.swing.JPanel;
 
 
 public class UserPanelUIOdd extends JPanel{
-
-
-	private ICar car = null;
-
-	private UserPanelColor activeButtonColor = null;
-
 	private UserPanelColor buttonColor = null;
 
 	private List<JButton> lstUserPanelButtons = new ArrayList<JButton>();
-	
-	//modify code - Lavanya	
-	private String alarmType;
+
 	
 	JButton alarmOn;
 	 JButton alarmOff;
-	//public UserPanelUIOdd(int numFloors, UserPanelColor buttonColor,
-	//UserPanelColor activeButtonColor, ICar car) {
 		
 	public UserPanelUIOdd(int numFloors, UserPanelColor buttonColor,
 				UserPanelColor activeButtonColor, ICar car, String alarmType) {
-		//end
-		
-		System.out.println("Inside UsserPanel UI "+ car);
-
-		this.car = car;
-
-		this.activeButtonColor = activeButtonColor;
 
 		this.buttonColor = buttonColor;
 
 		int newNumFloors = 0;
         int numButtons = numFloors + 2;  //for alarmOn and alarmOff buttons;
-		
-		//add code - Lavanya
-		this.alarmType = alarmType; //end
+
 
 		setPreferredSize(new Dimension(200, 200));
 		if (numButtons % 3 != 0) {
@@ -59,9 +40,6 @@ public class UserPanelUIOdd extends JPanel{
 
 		for (int i = 1; i <= numFloors; i+=2) {
 			JButton button = new JButton("" + i);
-			
-			System.out.println("Button Text" + button.getText());
-			System.out.println("Button Color" + buttonColor);
 			button.setBackground(buttonColor.getJColor());
 			button.addActionListener(
 					new UserPanelButtonListener(button.getText(), car, activeButtonColor));
@@ -69,8 +47,6 @@ public class UserPanelUIOdd extends JPanel{
 			lstUserPanelButtons.add(button);
 
 		}
-		
-//add code - Lavanya
 		
 		ImageIcon alarm = new ImageIcon("images/alarmbell2.jpg");
 		ImageIcon noAlarm = new ImageIcon("images/alarm.jpg");
@@ -95,9 +71,6 @@ public class UserPanelUIOdd extends JPanel{
 		alarmOff.addActionListener(new AlarmButtonListener("off",numFloors,car));
 		add(alarmOn);
 		add(alarmOff);
-		
-		
-        //end
 	}
 
 	

@@ -4,65 +4,12 @@ import javax.swing.JPanel;
 
 public class DoubleDoor implements IDoor{
 	
-	
-	//ICar car = null;
-	
 	ICarController carController = null;
 	
 	String doorStatus = "CLOSED";
 	
 	DoubleDoorUI doubleDoorUI = null;
 	
-	@Override
-	public void closeDoor() {
-		DoorThread1 doorThread = new DoorThread1(this, "Close");
-		Thread thread = new Thread(doorThread);
-		thread.start();
-		
-	}
-
-	@Override
-	public void openDoor() {
-		
-		DoorThread1 doorThread= new DoorThread1(this, "Open");
-		Thread thread = new Thread(doorThread);
-		thread.start();
-		
-	}
-
-	/*@Override
-	public void setCar(ICar car) {
-		this.car = car;
-		
-	}*/
-
-	@Override
-	public void setCarController(ICarController carController) {
-		this.carController = carController;
-		
-	}
-
-	@Override
-	public JPanel createDoorUI() {
-		
-		doubleDoorUI = new DoubleDoorUI();
-		return doubleDoorUI;
-	}
-
-	@Override
-	public String getDoorStatus() {
-		// TODO Auto-generated method stub
-		return doorStatus;
-	}
-
-	@Override
-	public void setDoorStatus(String doorStatus) {
-		this.doorStatus = doorStatus;
-		doubleDoorUI.setDoorStatus(doorStatus);
-		
-		
-		
-	}
 	
 	public static void main(String[] args){
 		IDoor door = new SingleDoor();
@@ -82,6 +29,48 @@ public class DoubleDoor implements IDoor{
 		
 		
 	}
+	
+	@Override
+	public void closeDoor() {
+		DoorThread1 doorThread = new DoorThread1(this, "Close");
+		Thread thread = new Thread(doorThread);
+		thread.start();
+		
+	}
+
+	@Override
+	public void openDoor() {
+		
+		DoorThread1 doorThread= new DoorThread1(this, "Open");
+		Thread thread = new Thread(doorThread);
+		thread.start();
+		
+	}
+
+	@Override
+	public void setCarController(ICarController carController) {
+		this.carController = carController;
+		
+	}
+
+	@Override
+	public JPanel createDoorUI() {
+		
+		doubleDoorUI = new DoubleDoorUI();
+		return doubleDoorUI;
+	}
+
+	@Override
+	public String getDoorStatus() {
+		return doorStatus;
+	}
+
+	@Override
+	public void setDoorStatus(String doorStatus) {
+		this.doorStatus = doorStatus;
+		doubleDoorUI.setDoorStatus(doorStatus);
+	}
+	
 }
 
 
@@ -142,7 +131,4 @@ class DoorThread1 implements Runnable{
 		}
 		
 	}
-	
-
-	
 }

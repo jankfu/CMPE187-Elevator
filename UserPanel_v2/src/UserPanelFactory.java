@@ -37,16 +37,8 @@ public class UserPanelFactory {
 				car.setUserPanelQueue(new TestUserPanelQueue());
 				
 		}
-		
-		/*if(UserPanelConfiguration.getQueueType().equals("default")){
-			userPanel.setCarControllerQueue(new UserPanelQueue());
-		}*/
-		 
-		 //code add - Lavanya
 		 userPanel.setAlarmType(UserPanelConfiguration.getAlarmType());
 		 userPanel.setMetaController(UserPanelConfiguration.getMetaController());
-		 //end
-		
 		return userPanel;		
 	}
 

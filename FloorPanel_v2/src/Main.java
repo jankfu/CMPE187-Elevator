@@ -11,7 +11,6 @@ public class Main
 	{
 		JFrame frame = new JFrame();
 		int numberOfFloors = 5;
-		//int numberOfFloors = UserPanel 's getNumberFloors();
 		frame.setLayout(new FlowLayout());
 	    IFloorPanel ifloorPanel = null;
 		FloorPanelConfiguration.setfloorPanelQueueType("default");
@@ -20,7 +19,6 @@ public class Main
 			ifloorPanel = FloorPanelFactory.createFloorPanel();
 			JPanel panel = ifloorPanel.createFloorPanel(i);
 			if(i==numberOfFloors){
-				System.out.println("Heloooooooo");
 				ifloorPanel.disableUpButton();
 			}
 			

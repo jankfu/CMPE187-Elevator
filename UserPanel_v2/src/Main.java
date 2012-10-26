@@ -21,7 +21,6 @@ public class Main  {
 		
 		
 		 frame.setSize(640, 400);
-	//	frame.add(UserPanelFactory.getUserPanelInstance().createUserPanel());
 		
 		frame.setVisible(true);
 		

@@ -31,13 +31,14 @@ public interface IFloorPanel
     
     void processedRequest(int floorNumber);
     
+    
     //Floor Indicator Parameters
     
     void processIndicatorRequest(int floorNumber,int id,String type);
     
     void processStatusRequest(int floorNumber,int currentFloor);
 
-    //add code - lavanya
+    
     
     void setNumAlarmIndicators(int numAlarmIndicators);
     	

@@ -9,12 +9,9 @@ public class AlgorithmFactory {
 		}else if(AlgorithmConfiguration.getAlgorithm().equalsIgnoreCase("leastTasks")){
 			algorithm = new LeastTasksAlgorithm();
 		}
-		/* **********************Anshu added************ */
 		else if(AlgorithmConfiguration.getAlgorithm().equalsIgnoreCase("SCAN")){
 			algorithm = new ScanAlgorithm();
-		}
-		/* **********End Add************ */
-		
+		}		
 		return algorithm;
 	}	
 }

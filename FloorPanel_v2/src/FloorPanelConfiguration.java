@@ -5,7 +5,6 @@ public class FloorPanelConfiguration
 	static FloorPanelColor buttonColor = FloorPanelColor.GREEN;
 	static FloorPanelColor activeButtonColor = FloorPanelColor.YELLOW;
 	static private String textType = "symbol";
-	//add code - Lavanya
 	static private int numAlarmIndicators = 5;
 
 	public static String getTextType() {
@@ -37,7 +36,6 @@ public class FloorPanelConfiguration
 		FloorPanelConfiguration.buttonColor = buttonColor;
 	}
 	
-	//add code - Lavanya
 	public static void setNumAlarmIndicators(int numAlarmIndicators){
 		FloorPanelConfiguration.numAlarmIndicators = numAlarmIndicators;
 	}

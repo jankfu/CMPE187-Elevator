@@ -4,9 +4,6 @@ import javax.swing.JPanel;
 
 public class SingleDoor implements IDoor{
 	
-	
-	//ICar car = null;
-	
 	ICarController carController = null;
 	
 	String doorStatus = "CLOSED";
@@ -18,7 +15,6 @@ public class SingleDoor implements IDoor{
 		DoorThread doorThread = new DoorThread(this, "Close");
 		Thread thread = new Thread(doorThread);
 		thread.start();
-		
 	}
 
 	@Override
@@ -30,28 +26,19 @@ public class SingleDoor implements IDoor{
 		
 	}
 
-	/*@Override
-	public void setCar(ICar car) {
-		this.car = car;
-		
-	}*/
-
 	@Override
 	public void setCarController(ICarController carController) {
 		this.carController = carController;
-		
 	}
 
 	@Override
-	public JPanel createDoorUI() {
-		
+	public JPanel createDoorUI() {	
 		singleDoorUI = new SingleDoorUI();
 		return singleDoorUI;
 	}
 
 	@Override
 	public String getDoorStatus() {
-		// TODO Auto-generated method stub
 		return doorStatus;
 	}
 
@@ -59,9 +46,6 @@ public class SingleDoor implements IDoor{
 	public void setDoorStatus(String doorStatus) {
 		this.doorStatus = doorStatus;
 		singleDoorUI.setDoorStatus(doorStatus);
-		
-		
-		
 	}
 	
 	public static void main(String[] args){
@@ -138,11 +122,6 @@ class DoorThread implements Runnable{
 				door.setDoorStatus("CLOSED");
 				door.notifyAll();
 			}
-			
 		}
-		
 	}
-	
-
-	
 }

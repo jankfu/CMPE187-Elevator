@@ -10,28 +10,26 @@ public class CarController implements ICarController {
 	LinkedList doorRequestQueue = new LinkedList();
 
 	IFloorPanel floorPanel = null;
-	
+
 	@Override
 	public void processRequest(int destinationFloorNumber, Direction direction) {
-		
-		if(!car.getDoor().getDoorStatus().equalsIgnoreCase("CLOSED")){
+
+		if (!car.getDoor().getDoorStatus().equalsIgnoreCase("CLOSED")) {
 			processDoorRequest(DoorCommand.CLOSE);
-			
+
 			try {
 				Thread.currentThread().sleep(2000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
+
 		if (direction.equals(Direction.UP)) {
 			synchronized (car) {
 				car.moveUp(destinationFloorNumber);
 				try {
 					car.wait();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -44,21 +42,19 @@ public class CarController implements ICarController {
 				try {
 					car.wait();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
 			}
 		}
 		car.getUserPanel().deactivateFloorButton(destinationFloorNumber);
-		
+
 		floorPanel.processedRequest(destinationFloorNumber);
-	
+
 		processDoorRequest(DoorCommand.OPEN);
 		try {
 			Thread.currentThread().sleep(2000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		processDoorRequest(DoorCommand.CLOSE);
@@ -72,21 +68,16 @@ public class CarController implements ICarController {
 
 	@Override
 	public void processDoorRequest(DoorCommand doorCommand) {
-
-		System.out.println("Inside Car Controller" + doorCommand);
-		System.out.println("Inside Car Controller" + car.getStatus());
 		door = car.getDoor();
 		IDoorPanel doorPanel = car.getDoorPanel();
 		if (doorCommand.equals(DoorCommand.OPEN)) {
-			if ((car.getStatus().equals(CarStatus.STOPPED)
-					|| car.getStatus().equals(CarStatus.IDLE)) && !car.getDoor().getDoorStatus().equalsIgnoreCase("Opened")) {
-				
-				
-				
+			if ((car.getStatus().equals(CarStatus.STOPPED) || car.getStatus()
+					.equals(CarStatus.IDLE))
+					&& !car.getDoor().getDoorStatus()
+							.equalsIgnoreCase("Opened")) {
 				doorPanel.activateOpenButton();
 				synchronized (door) {
 
-					
 					door.openDoor();
 					try {
 
@@ -102,10 +93,11 @@ public class CarController implements ICarController {
 
 			}
 
-			
 		} else {
-			if ((car.getStatus().equals(CarStatus.STOPPED)
-					|| car.getStatus().equals(CarStatus.IDLE)) && !car.getDoor().getDoorStatus().equalsIgnoreCase("Closed")) {
+			if ((car.getStatus().equals(CarStatus.STOPPED) || car.getStatus()
+					.equals(CarStatus.IDLE))
+					&& !car.getDoor().getDoorStatus()
+							.equalsIgnoreCase("Closed")) {
 
 				doorPanel.activateCloseButton();
 				synchronized (door) {
@@ -123,27 +115,25 @@ public class CarController implements ICarController {
 			}
 			doorPanel.deactivateCloseButton();
 		}
-		
-		
 
 	}
-	
-	
+
 	@Override
 	public void setFloorPanel(IFloorPanel floorPanel) {
-		this.floorPanel =  floorPanel;
-		
+		this.floorPanel = floorPanel;
+
 	}
+
 	public IFloorPanel getFloorPanel() {
-		return floorPanel ;
-		
+		return floorPanel;
+
 	}
-	
-	public void processAlarmRequest(String alarmStatus, int carId){
-		    
-		    if(alarmStatus.equalsIgnoreCase("on")||alarmStatus.equalsIgnoreCase("off"))
-		    	  System.out.println("inside processAlarmRequest in car controller");
-			       floorPanel.processAlarmRequest(alarmStatus, carId);
+
+	public void processAlarmRequest(String alarmStatus, int carId) {
+
+		if (alarmStatus.equalsIgnoreCase("on")
+				|| alarmStatus.equalsIgnoreCase("off"))
+		floorPanel.processAlarmRequest(alarmStatus, carId);
 	}
 
 }

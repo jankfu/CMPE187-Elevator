@@ -1,18 +1,14 @@
 import javax.swing.JPanel;
 
-
 public class TestCar implements ICar {
 
-	
 	IUserPanelQueue usePanelQueue = null;
 	IUserPanel userPanel1 = null;
 	ICarController carController = null;
 	int carId = 0;
-	
-	
+
 	@Override
 	public JPanel createCar() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -37,7 +33,7 @@ public class TestCar implements ICar {
 	@Override
 	public void setCarController(ICarController arg0) {
 		// TODO Auto-generated method stub
-         carController = arg0;      
+		carController = arg0;
 	}
 
 	@Override
@@ -86,19 +82,19 @@ public class TestCar implements ICar {
 	@Override
 	public void moveDown(int arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void moveUp(int arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setStatus(CarStatus arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -110,18 +106,18 @@ public class TestCar implements ICar {
 	@Override
 	public void setDoorPanel(IDoorPanel arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	public void setCarId(int arg0){
-		
+
+	public void setCarId(int arg0) {
+
 	}
-	
-	public int getCarId(){
+
+	public int getCarId() {
 		return 0;
 	}
-	
-	public String getCarType(){
+
+	public String getCarType() {
 		return "seq";
 	}
 

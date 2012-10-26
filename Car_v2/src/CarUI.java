@@ -14,8 +14,6 @@ public class CarUI extends JPanel {
 	JTextField textCurrentFloorNumber = null;
 	JTextField textStatus = null;
 	
-	
-	
 	public CarUI(int currentFloorNumber, String carName, IDoor door, IUserPanel  userPanel, IDoorPanel doorPanel){
 		
 		setBorder( BorderFactory.createLineBorder(Color.black));
@@ -96,17 +94,4 @@ public class CarUI extends JPanel {
 		
 	}
 	
-	/*public static void main(String args[]) throws InterruptedException{
-		JFrame frame = new JFrame();
-		frame.setLayout(new FlowLayout());
-		frame.setPreferredSize(new Dimension(300, 300));
-		SingleDoor door = new SingleDoor();
-		
-		UserPanelInterface panel = new UserPanel();
-		panel.setNumberFloors(10);
-		frame.add(new Car("Hello", new SingleDoor(), panel));
-		frame.setVisible(true);
-		
-		
-	}*/
 }

@@ -41,7 +41,6 @@ public class DoorPanelUI extends JPanel
 	}
 	
 	void deactivateOpenButton(){
-		System.out.println("Inside deactivate..........");
 		openButton.setBackground(null);
 	}
 	

@@ -10,7 +10,7 @@ public class RandomAlgorithm implements IAlgorithm {
 		
 		ICar bestCar = null;
 		
-		if(lstCars.size() ==1){
+		if(lstCars.size() == 1){
 			bestCar = lstCars.get(0);
 			return bestCar;
 		}

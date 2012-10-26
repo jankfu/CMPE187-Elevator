@@ -41,7 +41,6 @@ public class CarConfiguration {
 		CarConfiguration.carType = carType;
 	}
 
-
 	public static String getCarControllerType() {
 		return carControllerType;
 	}

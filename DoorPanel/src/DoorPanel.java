@@ -4,8 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-public class DoorPanel implements IDoorPanel
-{
+public class DoorPanel implements IDoorPanel{
 	ICar car = null;
 		
 	DoorPanelUI doorPanelUI = null;
@@ -18,21 +17,6 @@ public class DoorPanel implements IDoorPanel
 	
 	String closeText = null;
 	
-	
-	public JPanel createDoorPanelUI() {
-		
-		doorPanelQueue = new DoorPanelQueue(car);
-		doorPanelUI = new DoorPanelUI(doorPanelQueue, openText, closeText);		
-		return doorPanelUI ;
-	}
-
-	@Override
-	public void setCar(ICar car) {
-		// TODO Auto-generated method stub
-		this.car = car;
-	}
-
-		
 	public static void main(String args[]){
 		
 		IDoorPanel d = new DoorPanel();
@@ -53,21 +37,19 @@ public class DoorPanel implements IDoorPanel
 		j.setLayout(new FlowLayout());
 		j.add(d.createDoorPanelUI());
 		j.add(door.createDoorUI());
-		j.setVisible(true);
+		j.setVisible(true);		
+	}
+	
+	public JPanel createDoorPanelUI() {
 		
-		
-		
-		/*synchronized(door){
-			door.openDoor();
-			try {
-				door.wait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}*/
-		
-		
+		doorPanelQueue = new DoorPanelQueue(car);
+		doorPanelUI = new DoorPanelUI(doorPanelQueue, openText, closeText);		
+		return doorPanelUI ;
+	}
+
+	@Override
+	public void setCar(ICar car) {
+		this.car = car;
 	}
 
 	@Override

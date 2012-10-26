@@ -28,9 +28,7 @@ public class UserPanelConfigurationUI  extends JPanel{
 	 
 	 JComboBox list6 = new JComboBox(new String[]{"Current", "Even","Odd"});
 	 
-	 //code add begin - Lavanya
 	 JComboBox list7 = new JComboBox(new String[]{"Text", "Symbol"});
-	 //end
 	 
 	 Main owner = null;
 	
@@ -46,16 +44,8 @@ public class UserPanelConfigurationUI  extends JPanel{
 		
 		JLabel label6 = new JLabel("User panel Numbering Type");
 		
-		//code add - Lavanya
 		JLabel label7 = new JLabel("User panel Alarm Type");
-		//end
-		
-		//JLabel label3 = new JLabel("Queue Type");
-		//JLabel label4 = new JLabel("Number of Floors");
-		//JLabel label5 = new JLabel("Number of Floors");
-		
-		
-		
+				
 		 int centerRow = 0;
 		   GridBagConstraints gbc = new GridBagConstraints();
 		    gbc.gridy = centerRow++;
@@ -94,16 +84,13 @@ public class UserPanelConfigurationUI  extends JPanel{
 		    gbc.gridx = 1;
 		    add(list6,gbc);
 		    
-		    //code add - Lavanya
 		    gbc.gridy = centerRow++;
 		    gbc.gridx = 0;
 		    add(label7,gbc);
 		    gbc.gridx = 1;
 		    add(list7,gbc);
-		    //code end
 		    
 		    gbc.gridx = 1;
-		   //code modify - Lavanya gbc.gridy = 6;
 		    gbc.gridy = 9;
 		    JButton ok = new JButton ("OK");
 			add(ok, gbc);
@@ -183,20 +170,9 @@ public class UserPanelConfigurationUI  extends JPanel{
 	    	  
 	    	  UserPanelConfiguration.setNumberFloors(floorn);
 	    	  
-	    	  //add code - Lavanya
 	    	  
 	    	  UserPanelConfiguration.setAlarmType((String)list7.getSelectedItem());
-	    	
-	    	  //end  
-            
-	    	  appUI.disposeMainScreenComponents();
-	    	  appUI.createUI();
 	    	  
-	    	  
-	    	  
-	    	  
-	       }
-	      
+	       }   
 	    }
-
 }

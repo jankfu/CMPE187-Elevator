@@ -18,8 +18,6 @@ public class UserPanelRequest {
 		this.destinationFloorNumber = destinationFloorNumber;
 	}
 
-		
-	//TBD - implement equals method
 	@Override
 	public boolean equals(Object arg0) {
 		UserPanelRequest u = (UserPanelRequest)arg0;

@@ -1,12 +1,14 @@
-/* created by Lavanya*/
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-
+/**
+ * 
+ * @author Lavanya
+ *
+ */
 public class AlarmButtonListener implements ActionListener{
 
 	

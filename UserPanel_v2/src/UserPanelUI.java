@@ -19,37 +19,23 @@ public class UserPanelUI extends JPanel  {
 
 	private ICar car = null;
 
-	private UserPanelColor activeButtonColor = null;
-
 	private UserPanelColor buttonColor = null;
 
 	private List<JButton> lstUserPanelButtons = new ArrayList<JButton>();
 	
-//modify code - Lavanya	
-	private String alarmType;
-	
 	 JButton alarmOn;
 	 JButton alarmOff;
-	//public UserPanelUI(int numFloors, UserPanelColor buttonColor,
-		//	UserPanelColor activeButtonColor, ICar car) {
-		
+	 
 	public UserPanelUI(int numFloors, UserPanelColor buttonColor,
 				UserPanelColor activeButtonColor, ICar car, String alarmType) {
-		//end
 		System.out.println("Inside UsserPanel UI "+ car);
 
 		this.car = car;
-
-		this.activeButtonColor = activeButtonColor;
-
 		this.buttonColor = buttonColor;
 
 		int newNumFloors = 0;
 		int numButtons = numFloors + 2;  //for alarmOn and alarmOff buttons;
 		
-		//add code - Lavanya
-		this.alarmType = alarmType; //end
-
 		setPreferredSize(new Dimension(200, 200));
 		if (numButtons % 3 != 0) {
 			newNumFloors = numButtons + (3 - (numButtons % 3));
@@ -64,9 +50,6 @@ public class UserPanelUI extends JPanel  {
 
 		for (int i = 1; i <= numFloors; i++) {
 			JButton button = new JButton("" + i);
-			
-			System.out.println("Button Text" + button.getText());
-			System.out.println("Button Color" + buttonColor);
 			button.setBackground(buttonColor.getJColor());
 			button.addActionListener(
 					new UserPanelButtonListener(button.getText(), car, activeButtonColor));
@@ -75,15 +58,7 @@ public class UserPanelUI extends JPanel  {
 			lstUserPanelButtons.add(button);
 
 		}
-		
-		//add code - Lavanya
-		/*setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		
-		gbc.gridx = 1;
-		gbc.gridy = 1;*/
-		//setLayout(new GridLayout(1,2));
-		
+
 		ImageIcon alarm = new ImageIcon("images/alarmbell2.jpg");
 		ImageIcon noAlarm = new ImageIcon("images/alarm.jpg");
 		
@@ -108,9 +83,7 @@ public class UserPanelUI extends JPanel  {
 		alarmOff.addActionListener(new AlarmButtonListener("off",numFloors,car));
 		add(alarmOn);
 		add(alarmOff);
-	
-		
-        //end
+
 	}
 	
 	public void deactivateFloorButton(int floorNumber){
@@ -125,7 +98,6 @@ public class UserPanelUI extends JPanel  {
 	}
 	
 	public void deactivateFloorButtons(){
-		System.out.println("userpanelui - alarm on-ddeactivate");
 		for(JButton button : lstUserPanelButtons){
 			button.setEnabled(false);
 			button.setBackground(buttonColor.getJColor());
@@ -134,7 +106,6 @@ public class UserPanelUI extends JPanel  {
 	}
 	
 	public void activateFloorButtons(){
-		System.out.println("userpanelui - alarm off-activate");
 		for(JButton button : lstUserPanelButtons)
 			button.setEnabled(true);
 		alarmOff.setBackground(Color.GRAY);
